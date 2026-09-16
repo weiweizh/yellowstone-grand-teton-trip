@@ -1,0 +1,6 @@
+.overnight-link{display:flex;align-items:center;justify-content:flex-end;gap:6px;color:var(--forest);margin-top:6px}
+.overnight-link strong{margin-top:0}
+.overnight-link svg{width:14px;height:14px;color:var(--ochre);flex:none}
+.overnight-link svg:last-child{width:12px;height:12px;color:var(--muted)}
+.overnight-link:hover strong{text-decoration:underline;text-underline-offset:3px}
+@media(max-width:700px){.overnight-link{justify-content:flex-start}}

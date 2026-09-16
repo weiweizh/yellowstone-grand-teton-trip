@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#173b35" />
+    <title>Field Notes | Yellowstone & Grand Teton</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="day-tabs.css" />
+    <link rel="stylesheet" href="timeline.css" />
+    <link rel="stylesheet" href="overnight-link.css" />
+    <link rel="stylesheet" href="interaction.css" />
+    <link rel="stylesheet" href="card-variants.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="#top" aria-label="Yellowstone and Grand Teton trip home"><span class="brand-mark">✳</span><span id="brandTitle">Yellowstone &amp; Grand Teton Trip</span></a>
+      <button class="lang-toggle" id="langToggle" type="button" aria-label="Switch language"><span class="lang-active">EN</span><span> / </span><span>中</span></button>
+    </header>
+    <div class="offline-status" id="offlineStatus" role="status" hidden></div>
+
+    <main id="top">
+      <section class="route-wrap page-width" aria-label="Trip route">
+        <div class="section-kicker"><span data-i18n="routeKicker">THE BIG LOOP</span><span class="route-distance" id="routeDistance">JACKSON → BOZEMAN</span></div>
+        <div class="route-line">
+          <div class="route-stop active"><span class="route-dot"></span><strong data-i18n="jackson">Jackson</strong><small>JAC</small></div>
+          <div class="route-stop"><span class="route-dot"></span><strong data-i18n="westYellowstone">West Yellowstone</strong><small id="westNights">3 NIGHTS</small></div>
+          <div class="route-stop"><span class="route-dot"></span><strong data-i18n="gardiner">Gardiner</strong><small id="gardinerNights">1 NIGHT</small></div>
+          <div class="route-stop finish"><span class="route-dot"></span><strong data-i18n="bozeman">Bozeman</strong><small>BZN ✈</small></div>
+        </div>
+      </section>
+
+      <section class="controls page-width">
+        <div class="section-title"><span class="eyebrow" data-i18n="yourRoute">YOUR ROUTE</span><span id="visitedSummary">0 / 17 VISITED</span></div>
+        <div class="control-row">
+          <button class="outline-btn" id="expandToggle" type="button"><i data-lucide="chevrons-up-down"></i><span data-i18n="expand">Show details</span></button>
+        </div>
+        <div class="day-tabs" id="dayTabs" role="tablist" aria-label="Choose a day"></div>
+      </section>
+
+      <section class="itinerary page-width" id="itinerary" aria-live="polite"></section>
+      <section class="packing page-width"><div><span class="eyebrow" data-i18n="fieldNote">FIELD NOTE</span><h2 id="packingTitle">Leave room<br /><em>for the unexpected.</em></h2></div><p data-i18n="fieldCopy">Wildlife moves on its own schedule. Give yourself time between the points on the map, pull over often, and keep your camera ready.</p></section>
+    </main>
+    <footer class="footer page-width"><span id="footerTitle">FIELD NOTES / YELLOWSTONE 2026</span><span id="footerTagline">MADE FOR THE ROAD</span></footer>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="app.js?v=10"></script>
+  </body>
+</html>

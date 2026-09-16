@@ -1,0 +1,8 @@
+/* Day controls are intentionally prominent touch targets on mobile. */
+.day-tabs{padding:2px 0 8px}
+.day-tab{background:var(--white);border:1px solid var(--line);border-radius:3px;min-width:130px;min-height:56px;padding:9px 11px;color:var(--muted);display:flex;flex-direction:column;align-items:flex-start;gap:3px;text-align:left;white-space:nowrap;transition:background .2s,border-color .2s,color .2s,transform .2s}
+.day-tab:hover{border-color:var(--ochre);transform:translateY(-1px)}
+.day-tab.active{background:var(--forest);border-color:var(--forest);color:var(--paper)}
+.day-tab b{font:500 10px var(--mono);letter-spacing:.08em}
+.day-tab span{font-size:11px}
+.day-tab.active b{color:#e1aa69}
