@@ -1,0 +1,15 @@
+/* Reference palette: sage backdrop, warm ivory paper, ink black, antique brass. */
+:root{--forest:#1d211b;--forest-2:#4f5b48;--paper:#d8ddc4;--paper-deep:#f2efda;--ink:#27271f;--muted:#737866;--ochre:#9a7b42;--line:#b9bea6;--white:#fbf8e8}
+body{background:var(--paper);color:var(--ink)}
+.site-header{background:rgba(216,221,196,.92);border-bottom-color:var(--line)}
+.route-wrap,.controls,.itinerary{background:var(--paper-deep)}
+.route-wrap{padding-inline:20px}.controls{padding:20px 20px 31px}.itinerary{padding-inline:20px}
+.footer{border-top-color:var(--line)}.route-line:before{background:var(--forest-2)}.route-dot{background:var(--paper-deep)}
+.route-stop.active .route-dot,.route-stop.finish .route-dot{background:var(--ochre);border-color:var(--ochre)}
+.day-tabs{background:var(--paper-deep)}.day-tab{background:var(--white);border-color:var(--line)}.day-tab.active{background:var(--forest);border-color:var(--forest)}
+.day-card{border-top-color:var(--forest)}.item{background:var(--white);border-color:var(--line)}.sequence{background:var(--paper-deep)}
+.variant-journal .sequence,.variant-wayfinder .sequence{background:var(--forest);border-color:var(--forest);color:var(--paper-deep)}
+.tag{border-color:var(--line);color:var(--forest-2)}.offline-status{background:var(--forest)}
+.lang-toggle,.outline-btn{border-color:var(--forest);color:var(--forest)}.search-wrap input{background:var(--white);border-color:var(--line)}
+.packing{background:var(--forest);color:var(--paper-deep)}
+@media(max-width:700px){.route-wrap,.controls,.itinerary{padding-inline:14px}}
