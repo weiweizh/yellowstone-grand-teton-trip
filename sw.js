@@ -1,4 +1,4 @@
-const CACHE_NAME = 'yellowstone-field-notes-v11';
+const CACHE_NAME = 'yellowstone-field-notes-v12';
 const APP_SHELL = ['./', './index.html', './styles.css', './timeline.css', './overnight-link.css', './interaction.css', './card-variants.css', './theme.css', './app.js'];
 
 self.addEventListener('install', event => {
