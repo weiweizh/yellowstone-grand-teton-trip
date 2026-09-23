@@ -186,6 +186,6 @@ $('#expandToggle').addEventListener('click', () => { expanded = !expanded; persi
 $('#langToggle').addEventListener('click', () => { language = language === 'en' ? 'zh' : 'en'; document.documentElement.lang = language; persistState(); render(); });
 window.addEventListener('online', () => $('#offlineStatus').setAttribute('hidden', ''));
 window.addEventListener('offline', () => { $('#offlineStatus').textContent = language === 'en' ? 'Offline mode: itinerary text is still available.' : '离线模式：行程文字仍可使用。'; $('#offlineStatus').removeAttribute('hidden'); });
-if ('serviceWorker' in navigator) navigator.serviceWorker.register('sw.js?v=12').catch(() => {});
+if ('serviceWorker' in navigator) navigator.serviceWorker.register('sw.js?v=13').catch(() => {});
 if (!navigator.onLine) window.dispatchEvent(new Event('offline'));
 render();
