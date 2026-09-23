@@ -12,8 +12,8 @@
   --color-warning:#a26f39;
   --color-danger:#9a4e45;
   --color-info:#4e6c75;
-  --font-display:'Playfair Display',Georgia,serif;
-  --font-body:'DM Sans',Arial,sans-serif;
+  --font-display:'Amarna',sans-serif;
+  --font-body:'AR One Sans',sans-serif;
   --font-mono:'DM Mono',monospace;
   --text-3xs:.625rem;
   --text-2xs:.6875rem;
@@ -65,6 +65,8 @@
   --ochre:var(--color-accent);
   --line:var(--color-border);
   --white:var(--color-surface-raised);
+  --serif:var(--font-display);
+  --sans:var(--font-body);
 }
 
 body{font-family:var(--font-body);font-size:var(--text-body);line-height:var(--leading-body);color:var(--color-text)}
