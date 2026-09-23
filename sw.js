@@ -1,5 +1,5 @@
-const CACHE_NAME = 'yellowstone-field-notes-v13';
-const APP_SHELL = ['./', './index.html', './design-system.html', './styles.css', './timeline.css', './overnight-link.css', './interaction.css', './card-variants.css', './theme.css', './tokens.css', './design-system.css', './design-system-config.js', './design-system.js', './app.js'];
+const CACHE_NAME = 'yellowstone-field-notes-v14';
+const APP_SHELL = ['./', './index.html', './design-system.html', './styles.css', './timeline.css', './overnight-link.css', './interaction.css', './card-variants.css', './theme.css', './tokens.css', './design-system.css', './design-system-components.css', './design-system-config.js', './design-system.js', './app.js'];
 
 self.addEventListener('install', event => {
   event.waitUntil(caches.open(CACHE_NAME).then(cache => cache.addAll(APP_SHELL)));
