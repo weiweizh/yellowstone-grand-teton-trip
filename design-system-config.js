@@ -8,10 +8,10 @@
     '--radius-sm':'3px','--radius-md':'8px','--radius-lg':'16px','--shadow-sm':'0 1px 2px rgba(29,33,27,.08)','--shadow-md':'0 12px 30px rgba(29,33,27,.12)','--shadow-lg':'0 24px 60px rgba(29,33,27,.16)','--motion-base':'220ms'
   };
   function read(){try{return {...defaults,...JSON.parse(localStorage.getItem(STORAGE_KEY)||'{}')}}catch{return {...defaults}}}
-  function apply(config, persist=true){const next={...defaults,...config};Object.entries(next).forEach(([key,value])=>document.documentElement.style.setProperty(key,value));if(persist)try{localStorage.setItem(STORAGE_KEY,JSON.stringify(next))}catch{};document.dispatchEvent(new CustomEvent('designsystemchange',{detail:next}));return next}
+  function apply(config, persist=true, source='local'){const next={...defaults,...config};Object.entries(next).forEach(([key,value])=>document.documentElement.style.setProperty(key,value));if(persist)try{localStorage.setItem(STORAGE_KEY,JSON.stringify(next))}catch{};document.dispatchEvent(new CustomEvent('designsystemchange',{detail:{tokens:next,persist,source}}));return next}
   function reset(){return apply(defaults,true)}
   function exportFiles(config){const next={...defaults,...config};const css=`:root{\n${Object.entries(next).map(([key,value])=>`  ${key}: ${value};`).join('\n')}\n}`;const blob=new Blob([JSON.stringify({tokens:next,css},null,2)],{type:'application/json'});const url=URL.createObjectURL(blob);const link=document.createElement('a');link.href=url;link.download='yellowstone-design-tokens.json';link.click();URL.revokeObjectURL(url);return {tokens:next,css}}
   const api={defaults,read,apply,reset,export:exportFiles,storageKey:STORAGE_KEY};
   window.DesignSystem=api;apply(read(),false);
-  window.addEventListener('storage',event=>{if(event.key===STORAGE_KEY)apply(read(),false)});
+  window.addEventListener('storage',event=>{if(event.key===STORAGE_KEY)apply(read(),false,'storage')});
 })();
