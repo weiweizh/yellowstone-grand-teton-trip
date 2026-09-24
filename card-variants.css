@@ -1,7 +1,7 @@
-.card-style-control{border-top:1px solid var(--line);padding:18px 0 8px;margin-top:2px}
+.card-style-control{border-top:1px solid var(--line);padding:18px 0 var(--space-xs);margin-top:2px}
 .style-label{display:block;color:var(--ochre);font:500 10px var(--mono);letter-spacing:.14em;margin-bottom:10px}
-.style-options{display:flex;gap:8px;overflow-x:auto;padding:2px 0 9px}
-.style-option{background:transparent;border:1px solid var(--line);border-radius:3px;min-width:148px;min-height:62px;padding:9px 11px;text-align:left;color:var(--muted);display:grid;grid-template-columns:auto 1fr;column-gap:8px;align-items:center;transition:background .18s,border-color .18s,color .18s,transform .18s}
+.style-options{display:flex;gap:var(--space-xs);overflow-x:auto;padding:2px 0 9px}
+.style-option{background:transparent;border:1px solid var(--line);border-radius:3px;min-width:148px;min-height:62px;padding:9px 11px;text-align:left;color:var(--muted);display:grid;grid-template-columns:auto 1fr;column-gap:var(--space-xs);align-items:center;transition:background .18s,border-color .18s,color .18s,transform .18s}
 .style-option:hover{border-color:var(--ochre);transform:translateY(-1px)}
 .style-option.active{background:var(--forest);border-color:var(--forest);color:var(--paper)}
 .style-option span{grid-row:1 / span 2;color:var(--ochre);font:500 10px var(--mono)}
@@ -21,10 +21,10 @@
 
 /* 03 Wayfinder: dense scan-first layout, useful when moving between stops. */
 .variant-wayfinder .timeline .item{grid-template-columns:112px 1fr;min-height:124px;background:transparent;border:0;border-bottom:1px solid var(--line);border-radius:0}
-.variant-wayfinder .timeline .item-content{grid-column:2;grid-row:1;padding:15px 0 14px 16px}
+.variant-wayfinder .timeline .item-content{grid-column:2;grid-row:1;padding:15px 0 14px var(--space-md)}
 .variant-wayfinder .timeline .item-image{grid-column:1;grid-row:1;width:112px;height:100%;min-height:124px;aspect-ratio:1/1;object-fit:cover}
 .variant-wayfinder .timeline .item.no-image .item-content{grid-column:1 / -1;padding-left:0}
-.variant-wayfinder .timeline .item-text{font-size:15px;margin:8px 0}
+.variant-wayfinder .timeline .item-text{font-size:15px;margin:var(--space-xs) 0}
 .variant-wayfinder .timeline .item-actions{gap:9px}
 .variant-wayfinder .timeline .tag{margin-top:2px}
 .variant-journal .sequence,.variant-wayfinder .sequence{background:var(--forest);color:var(--paper);border-color:var(--forest)}
@@ -34,7 +34,7 @@
   .variant-journal .timeline .item-image{height:auto;min-height:0}
   .variant-wayfinder .timeline .item{grid-template-columns:88px 1fr;min-height:112px}
   .variant-wayfinder .timeline .item-image{width:88px;min-height:112px}
-  .variant-wayfinder .timeline .item-content{padding-left:12px}
+  .variant-wayfinder .timeline .item-content{padding-left:var(--space-sm)}
 }
 
 @media(prefers-reduced-motion:reduce){.style-option{transition:none}}
