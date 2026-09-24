@@ -12,6 +12,9 @@
   function reset(){return apply(defaults,true)}
   function exportFiles(config){const next={...defaults,...config};const css=`:root{\n${Object.entries(next).map(([key,value])=>`  ${key}: ${value};`).join('\n')}\n}`;const blob=new Blob([JSON.stringify({tokens:next,css},null,2)],{type:'application/json'});const url=URL.createObjectURL(blob);const link=document.createElement('a');link.href=url;link.download='yellowstone-design-tokens.json';link.click();URL.revokeObjectURL(url);return {tokens:next,css}}
   const api={defaults,read,apply,reset,export:exportFiles,storageKey:STORAGE_KEY};
-  window.DesignSystem=api;apply(read(),false);
+  window.DesignSystem=api;
+  let startup=read();
+  if(new URLSearchParams(location.search).has('yds-preview')){try{const draft=JSON.parse(sessionStorage.getItem('yds-preview-tokens')||'null');if(draft)startup={...startup,...draft}}catch{}}
+  apply(startup,false);
   window.addEventListener('storage',event=>{if(event.key===STORAGE_KEY)apply(read(),false,'storage')});
 })();

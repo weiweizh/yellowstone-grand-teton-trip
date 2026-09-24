@@ -14,6 +14,7 @@
   colorControls.forEach(control=>{const color=control.querySelector('input[type=color]');const hex=control.querySelector('.hex');color.addEventListener('input',()=>{hex.value=color.value;preview()});hex.addEventListener('input',()=>{if(/^#[0-9a-f]{6}$/i.test(hex.value)){color.value=hex.value;preview()}})});
   rangeControls.forEach(input=>['input','change'].forEach(eventName=>input.addEventListener(eventName,()=>{const output=input.parentElement.querySelector('output');if(output)output.textContent=displayValue(input);preview()})));
   $('#applyTokens').addEventListener('click',()=>{config.apply(collect(),true);$('#syncNote').textContent='Applied and synced across open tabs.';setTimeout(()=>$('#syncNote').textContent='Synced across open tabs.',1800)});
+  $('#previewItinerary').addEventListener('click',()=>{const draft=collect();try{sessionStorage.setItem('yds-preview-tokens',JSON.stringify(draft))}catch{};window.open('index.html?yds-preview=1','_blank');$('#syncNote').textContent='Opened itinerary preview with draft tokens.'});
   $('#exportTokens').addEventListener('click',()=>{config.export(collect());$('#syncNote').textContent='Token JSON exported.'});
   $('#resetTokens').addEventListener('click',()=>{config.reset();hydrate();$('#syncNote').textContent='Defaults restored.'});
   document.addEventListener('designsystemchange',event=>{const detail=event.detail||{};if(detail.persist||detail.source==='storage')hydrate();updateFontLabels();renderGallery(detail.tokens||detail)});
