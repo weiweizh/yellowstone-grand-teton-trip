@@ -1,4 +1,5 @@
 .component-grid{display:none}
+.ds-intro h2 em{color:var(--color-secondary)}
 .actual-component-gallery{display:grid;gap:28px}
 .actual-specimen{display:grid;gap:10px}
 .specimen-header{position:relative;top:auto;backdrop-filter:none;border:1px solid var(--color-border);padding-inline:20px}
