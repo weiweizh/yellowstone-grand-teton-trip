@@ -88,8 +88,8 @@ const visited = savedState.visited || {};
 const openActivities = savedState.openActivities || {};
 const $ = selector => document.querySelector(selector);
 const copy = {
-  en: { pageTitle: 'Yellowstone & Grand Teton road trip, October 7–12, 2026', brand: 'Yellowstone & Grand Teton Trip', routeKicker: 'THE BIG LOOP', routeDistance: 'JACKSON → BOZEMAN', route: 'YOUR ROUTE', expand: 'Show details', collapse: 'Hide details', overnight: 'OVERNIGHT', visited: count => `${count} / ${tripPlan.reduce((total, day) => total + day.plan.length, 0)} VISITED`, details: 'Details', closeDetails: 'Hide', maps: 'Maps', jackson: 'Jackson', westYellowstone: 'West Yellowstone', gardiner: 'Gardiner', bozeman: 'Bozeman', westNights: '3 NIGHTS', gardinerNights: '1 NIGHT', fieldNote: 'FIELD NOTE', packingTitle: 'Leave room<br><em>for the unexpected.</em>', fieldCopy: 'Wildlife moves on its own schedule. Give yourself time between the points on the map, pull over often, and keep your camera ready.', footerTitle: 'FIELD NOTES / YELLOWSTONE 2026', footerTagline: 'MADE FOR THE ROAD' },
-  zh: { pageTitle: '黄石与大提顿公路旅行 · 2026年10月7–12日', brand: '黄石与大提顿之旅', routeKicker: '大环线旅程', routeDistance: '杰克逊-大提顿国家公园 → 博兹曼', route: '你的路线', expand: '显示详情', collapse: '隐藏详情', overnight: '住宿', visited: count => `已完成 ${count} / ${tripPlan.reduce((total, day) => total + day.plan.length, 0)}`, details: '详情', closeDetails: '收起', maps: '地图', jackson: '杰克逊-大提顿国家公园', westYellowstone: '西黄石', gardiner: '加德纳', bozeman: '博兹曼', westNights: '3晚', gardinerNights: '1晚', fieldNote: '荒野笔记', packingTitle: '为意外<br><em>留一点空间。</em>', fieldCopy: '野生动物有自己的节奏。给景点之间留出余地，常常靠边停车，也别忘了随时准备好相机。', footerTitle: '旅行手记 / 黄石 2026', footerTagline: '为旅途而作' }
+  en: { pageTitle: 'Yellowstone & Grand Teton road trip, October 7–12, 2026', brand: 'Yellowstone & Grand Teton Trip', routeKicker: 'THE BIG LOOP', exportPdf: 'Export 6-day plan (PDF)', routeDistance: 'JACKSON → BOZEMAN', route: 'YOUR ROUTE', expand: 'Show details', collapse: 'Hide details', overnight: 'OVERNIGHT', visited: count => `${count} / ${tripPlan.reduce((total, day) => total + day.plan.length, 0)} VISITED`, details: 'Details', closeDetails: 'Hide', maps: 'Maps', jackson: 'Jackson', westYellowstone: 'West Yellowstone', gardiner: 'Gardiner', bozeman: 'Bozeman', westNights: '3 NIGHTS', gardinerNights: '1 NIGHT', fieldNote: 'FIELD NOTE', packingTitle: 'Leave room<br><em>for the unexpected.</em>', fieldCopy: 'Wildlife moves on its own schedule. Give yourself time between the points on the map, pull over often, and keep your camera ready.', footerTitle: 'FIELD NOTES / YELLOWSTONE 2026', footerTagline: 'MADE FOR THE ROAD' },
+  zh: { pageTitle: '黄石与大提顿公路旅行 · 2026年10月7–12日', brand: '黄石与大提顿之旅', routeKicker: '大环线旅程', exportPdf: '导出6天行程 (PDF)', routeDistance: '杰克逊-大提顿国家公园 → 博兹曼', route: '你的路线', expand: '显示详情', collapse: '隐藏详情', overnight: '住宿', visited: count => `已完成 ${count} / ${tripPlan.reduce((total, day) => total + day.plan.length, 0)}`, details: '详情', closeDetails: '收起', maps: '地图', jackson: '杰克逊-大提顿国家公园', westYellowstone: '西黄石', gardiner: '加德纳', bozeman: '博兹曼', westNights: '3晚', gardinerNights: '1晚', fieldNote: '荒野笔记', packingTitle: '为意外<br><em>留一点空间。</em>', fieldCopy: '野生动物有自己的节奏。给景点之间留出余地，常常靠边停车，也别忘了随时准备好相机。', footerTitle: '旅行手记 / 黄石 2026', footerTagline: '为旅途而作' }
 };
 const tagCopy = { Photo: '摄影', Viewpoint: '观景点', Wildlife: '野生动物', Optional: '选游', Logistics: '行程', Flight: '航班', Drive: '驾车', Geyser: '间歇泉', 'Must-See': '必看', Waterfall: '瀑布', Overview: '概览' };
 const timeCopy = { Flight: '航班', Midday: '中午', Morning: '早晨', Evening: '晚上', 'After sunset': '日落后', 'Day plan': '全天', '30 min': '30分钟', '45 min': '45分钟', '20 min': '20分钟', '45–60 min': '45–60分钟', '2–3 hrs': '2–3小时', '1.5–2 hrs': '1.5–2小时', '3–4 hrs': '3–4小时', '1 hr': '1小时', '6:00 AM – 11:21 AM': '上午6:00 – 11:21', '6:30 AM': '早上6:30', '11:00–11:30 AM': '上午11:00–11:30', '2:30 PM': '下午2:30', '4:15 PM – 1:15 AM': '下午4:15 – 凌晨1:15' };
@@ -131,7 +131,7 @@ function renderActivity(activity, dayIndex, activityIndex) {
 }
 
 function localizeStatic() {
-  const textKeys = ['routeKicker', 'yourRoute', 'expand', 'fieldNote', 'fieldCopy', 'jackson', 'westYellowstone', 'gardiner', 'bozeman'];
+  const textKeys = ['routeKicker', 'yourRoute', 'expand', 'exportPdf', 'fieldNote', 'fieldCopy', 'jackson', 'westYellowstone', 'gardiner', 'bozeman'];
   document.querySelectorAll('[data-i18n]').forEach(element => {
     const key = element.dataset.i18n;
     if (copy[language][key]) element.textContent = copy[language][key];
@@ -181,10 +181,27 @@ document.addEventListener('click', event => {
   render();
 });
 
+function renderPrintable() {
+  const items = (activity, key) => `<div class="pdf-item"><span class="pdf-seq">${String(key + 1).padStart(2, '0')}</span><div class="pdf-item-text"><span class="pdf-time">${timeCopy[activity.time] && language === 'zh' ? timeCopy[activity.time] : activity.time}</span>${language === 'en' ? activity.title : activity.titleZh}${(language === 'en' ? activity.details : activity.detailsZh) ? `<small>${language === 'en' ? activity.details : activity.detailsZh}</small>` : ''}</div><span class="pdf-tag">${tagCopy[activity.tag] && language === 'zh' ? tagCopy[activity.tag] : activity.tag}</span></div>`;
+  const overnight = day => {
+    const name = language === 'en' ? day.overnight : day.overnightZh;
+    const address = day.overnightMap ? decodeURIComponent((day.overnightMap.split('query=')[1] || '').replace(/\+/g, ' ')) : '';
+    return address ? `<span class="pdf-overnight"><strong>${name}</strong>${address}</span>` : '';
+  };
+  const chinese = language === 'zh';
+  $('#pdfExport').innerHTML = `<h1 class="pdf-doc-title">${chinese ? '黄石与大提顿 6 天完整行程' : 'Yellowstone & Grand Teton — Full 6-Day Plan'}</h1><p class="pdf-doc-sub">${chinese ? '2026年10月7日–12日 · 怀俄明 · 蒙大拿' : 'OCT 07–12, 2026 · WYOMING · MONTANA'}</p>` + tripPlan.map((day, index) => `<section class="pdf-day"><header class="pdf-day-head"><p class="pdf-day-index">${chinese ? `第${index + 1}天` : `DAY ${String(index + 1).padStart(2, '0')}`} · ${chinese ? day.dateZh : day.date}</p><div><h2 class="pdf-day-title">${chinese ? day.routeZh : day.route}<small>${chinese ? day.route : day.routeZh}</small></h2></div>${overnight(day)}</header><div class="pdf-items">${day.plan.map(items).join('')}</div></section>`).join('');
+}
+
+$('#printToggle').addEventListener('click', () => {
+  renderPrintable();
+  window.print();
+});
+window.addEventListener('afterprint', () => { $('#pdfExport').innerHTML = ''; });
+
 $('#expandToggle').addEventListener('click', () => { expanded = !expanded; persistState(); render(); });
 $('#langToggle').addEventListener('click', () => { language = language === 'en' ? 'zh' : 'en'; document.documentElement.lang = language; persistState(); render(); });
 window.addEventListener('online', () => $('#offlineStatus').setAttribute('hidden', ''));
 window.addEventListener('offline', () => { $('#offlineStatus').textContent = language === 'en' ? 'Offline mode: itinerary text is still available.' : '离线模式：行程文字仍可使用。'; $('#offlineStatus').removeAttribute('hidden'); });
-if ('serviceWorker' in navigator) navigator.serviceWorker.register('sw.js?v=24').catch(() => {});
+if ('serviceWorker' in navigator) navigator.serviceWorker.register('sw.js?v=25').catch(() => {});
 if (!navigator.onLine) window.dispatchEvent(new Event('offline'));
 render();

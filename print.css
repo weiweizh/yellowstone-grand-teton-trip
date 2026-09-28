@@ -1,0 +1,27 @@
+.pdf-export{display:none}
+@media print{
+  @page{size:A4;margin:14mm 12mm}
+  html,body{background:#fff}
+  body{print-color-adjust:economy}
+  .site-header,.lang-toggle,.controls,.outline-btn,.icon-btn,.item-actions,.footer,.offline-status,.day-tab-wrap,.route-line,.packing,.section-kicker,.section-title,.control-row{display:none!important}
+  main{padding:0}
+  .page-width{width:100%}
+  .pdf-export{display:block}
+  .pdf-doc-title{font:600 22px/1.1 var(--font-display,var(--serif));margin:0 0 2mm;color:#1d211b}
+  .pdf-doc-sub{font:500 9px var(--font-mono,var(--mono));letter-spacing:.14em;text-transform:uppercase;color:#7f5a24;margin:0 0 6mm}
+  .pdf-day{page-break-inside:avoid}
+  .pdf-day+.pdf-day{page-break-before:always}
+  .pdf-day-head{border-bottom:2px solid #1d211b;padding-bottom:8px;display:flex;justify-content:space-between;align-items:baseline;gap:6mm}
+  .pdf-day-index{font:500 10px var(--font-mono,var(--mono));color:#7f5a24;white-space:nowrap}
+  .pdf-day-title{font:600 16px/1.2 var(--font-display,var(--serif));margin:0}
+  .pdf-day-title small{display:block;font:400 10px var(--font-body,var(--sans));color:#5c5c50;margin-top:2px}
+  .pdf-overnight{font:10px var(--font-mono,var(--mono));color:#5c5c50;text-align:right;white-space:nowrap}
+  .pdf-overnight strong{display:block;font-size:11px;color:#1d211b}
+  .pdf-item{page-break-inside:avoid;display:grid;grid-template-columns:9mm 1fr auto;border-bottom:1px solid #d8d3c8;padding:5px 0}
+  .pdf-seq{font:500 9px var(--font-mono,var(--mono));color:#7f5a24;padding-top:2px}
+  .pdf-item-text{font-size:12px;line-height:1.4;color:#1d211b}
+  .pdf-item-text .pdf-time{font:500 9px var(--font-mono,var(--mono));color:#7f5a24;letter-spacing:.05em;text-transform:uppercase;margin-right:4px}
+  .pdf-item-text small{display:block;font-weight:400;font-size:10px;color:#5c5c50;margin-top:1px}
+  .pdf-tag{font:9px var(--font-mono,var(--mono));color:#5c5c50;align-self:start;border:1px solid #d8d3c8;padding:2px 5px;margin-top:2px}
+  a{color:inherit;text-decoration:none}
+}

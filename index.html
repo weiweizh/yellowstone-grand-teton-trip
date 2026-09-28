@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="interaction.css" />
     <link rel="stylesheet" href="card-variants.css" />
     <link rel="stylesheet" href="theme.css" />
+    <link rel="stylesheet" href="print.css" />
     <link rel="stylesheet" href="tokens.css" />
     <script src="design-system-config.js?v=21"></script>
   </head>
@@ -41,15 +42,17 @@
         <div class="section-title"><span class="eyebrow" data-i18n="yourRoute">YOUR ROUTE</span><span id="visitedSummary">0 / 30 VISITED</span></div>
         <div class="control-row">
           <button class="outline-btn" id="expandToggle" type="button"><i data-lucide="chevrons-up-down"></i><span data-i18n="expand">Show details</span></button>
+          <button class="outline-btn" id="printToggle" type="button"><i data-lucide="printer"></i><span data-i18n="exportPdf">Export 6-day plan (PDF)</span></button>
         </div>
         <div class="day-tabs" id="dayTabs" role="tablist" aria-label="Choose a day"></div>
       </section>
 
       <section class="itinerary page-width" id="itinerary" aria-live="polite"></section>
+      <div class="pdf-export" id="pdfExport" aria-hidden="true"></div>
       <section class="packing page-width"><div><span class="eyebrow" data-i18n="fieldNote">FIELD NOTE</span><h2 id="packingTitle">Leave room<br /><em>for the unexpected.</em></h2></div><p data-i18n="fieldCopy">Wildlife moves on its own schedule. Give yourself time between the points on the map, pull over often, and keep your camera ready.</p></section>
     </main>
     <footer class="footer page-width"><span id="footerTitle">FIELD NOTES / YELLOWSTONE 2026</span><span id="footerTagline">MADE FOR THE ROAD</span></footer>
     <script src="https://unpkg.com/lucide@latest"></script>
-    <script src="app.js?v=24"></script>
+    <script src="app.js?v=25"></script>
   </body>
 </html>
