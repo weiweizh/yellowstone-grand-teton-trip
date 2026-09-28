@@ -3,7 +3,7 @@
   @page{size:A4;margin:14mm 12mm}
   html,body{background:#fff}
   body{print-color-adjust:economy}
-  .site-header,.lang-toggle,.controls,.outline-btn,.icon-btn,.item-actions,.footer,.offline-status,.day-tab-wrap,.route-line,.packing,.section-kicker,.section-title,.control-row{display:none!important}
+  .site-header,.lang-toggle,.controls,.outline-btn,.icon-btn,.item-actions,.footer,.offline-status,.day-tab-wrap,.route-line,.packing,.section-kicker,.section-title,.control-row,.itinerary{display:none!important}
   main{padding:0}
   .page-width{width:100%}
   .pdf-export{display:block}
