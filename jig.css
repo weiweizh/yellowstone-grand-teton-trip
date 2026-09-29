@@ -1,0 +1,24 @@
+.jig-toggle,.jig-panel{box-sizing:border-box}
+.jig-toggle{position:fixed;right:14px;bottom:14px;z-index:9998;border:1px solid rgba(29,33,27,.35);background:#1d211b;color:#f2efda;font:500 11px var(--font-mono,var(--mono));letter-spacing:.12em;padding:10px 14px;border-radius:999px;cursor:pointer;box-shadow:0 12px 30px rgba(29,33,27,.28)}
+.jig-toggle:hover{background:#45634a}
+.jig-panel{position:fixed;right:14px;bottom:60px;z-index:9998;width:min(340px,calc(100vw - 28px));max-height:min(78vh,640px);overflow:auto;background:#fbf8e8;border:1px solid #b9bea6;border-radius:12px;box-shadow:0 24px 60px rgba(29,33,27,.28);font:11px var(--font-mono,var(--mono));color:#27271f;display:none}
+.jig-panel.jig-open{display:block}
+.jig-head{position:sticky;top:0;display:flex;justify-content:space-between;align-items:center;background:#1d211b;color:#f2efda;padding:10px 14px;margin:0;border-radius:12px 12px 0 0}
+.jig-head strong{letter-spacing:.14em;font-size:11px}
+.jig-head button{border:0;background:none;color:#f2effa;font-size:15px;cursor:pointer;line-height:1}
+.jig-section{border-top:1px solid #d8ddc4;padding:10px 14px 12px;margin:0}
+.jig-section h3{font:600 9px var(--font-mono,var(--mono));letter-spacing:.16em;text-transform:uppercase;color:#7f5a24;margin:0 0 8px}
+.jig-row{display:grid;grid-template-columns:1fr auto;align-items:center;gap:8px;padding:3px 0}
+.jig-row label{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.jig-row input[type=color]{width:30px;height:22px;padding:0;border:1px solid #b9bea6;border-radius:4px;background:none;cursor:pointer}
+.jig-row .jig-num{width:82px}
+.jig-row select,.jig-row .jig-num{font:11px var(--font-mono,var(--mono));border:1px solid #b9bea6;border-radius:4px;background:#fff;padding:3px 5px;color:#27271f;max-width:190px}
+.jig-row .jig-range{width:150px;accent-color:#4f5b48}
+.jig-wide{grid-template-columns:1fr}
+.jig-text,.jig-textarea{width:100%;font:11px var(--font-mono,var(--mono));border:1px solid #b9bea6;border-radius:4px;background:#fff;padding:5px;color:#27271f}
+.jig-actions{display:flex;gap:6px;flex-wrap:wrap;border-top:1px solid #d8ddc4;padding:10px 14px}
+.jig-actions button{flex:1;background:#4f5b48;border:0;color:#fbf8e8;font:500 10px var(--font-mono,var(--mono));letter-spacing:.08em;padding:8px 6px;border-radius:6px;cursor:pointer}
+.jig-actions button.jig-ghost{background:none;border:1px solid #b9bea6;color:#27271f}
+.jig-note{padding:0 14px 12px;color:#737866;font-size:9px;letter-spacing:.06em}
+.jig-hex{width:76px;font:10px var(--font-mono,var(--mono));border:1px solid #b9bea6;border-radius:4px;background:#fff;padding:3px}
+@media print{.jig-toggle,.jig-panel{display:none!important}}
